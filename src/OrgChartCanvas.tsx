@@ -426,7 +426,7 @@ export default function OrgChartCanvas(){
   function resetView(){ fitToContent(60); }
 
   return (
-    <div className="w-full h-[80vh] min-h-[460px] p-3 flex flex-col gap-3">
+    <div style={{width:'100%', height:'100vh', minHeight:460, padding:12, display:'flex', flexDirection:'column', gap:12}}>
       <div className="flex flex-wrap items-center gap-3">
         <div className="flex items-center gap-2">
           <label className="text-sm text-slate-600">節點數</label>
@@ -468,13 +468,13 @@ export default function OrgChartCanvas(){
           <span>Scale: <b className="tabular-nums">{uiScale.toFixed(2)}</b></span>
         </div>
       </div>
-      <div className="relative flex-1 border rounded-xl overflow-hidden bg-white">
+      <div style={{position:'relative', flex:1, border:'1px solid #e5e7eb', borderRadius:12, overflow:'hidden', background:'#fff'}}>
         {lod && uiScale < 0.35 && (
           <div className="absolute top-2 left-2 text-xs text-slate-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded">
             LOD 聚類顯示中（放大以顯示細節）
           </div>
         )}
-        <canvas ref={canvasRef} className="w-full h-full" />
+        <canvas ref={canvasRef} style={{width:'100%', height:'100%', display:'block'}} />
         <div className="absolute bottom-2 left-2 text-xs text-slate-600 bg-white/80 backdrop-blur-sm px-2 py-1 rounded shadow">
           左鍵拖曳移動，滾輪縮放；點擊節點切換展開/折疊。縮放 &lt; 0.35 時啟用聚類泡泡。
         </div>
