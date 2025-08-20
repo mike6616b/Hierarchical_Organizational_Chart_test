@@ -482,3 +482,5 @@ export default function OrgChartCanvas(){
     </div>
   );
 }
+
+export default OrgChartCanvas;
